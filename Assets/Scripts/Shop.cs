@@ -1,8 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 
-public class Shop : MonoBehaviour
-{
+public class Shop : MonoBehaviour {
     public int crystals;
 
     [SerializeField] TextMeshProUGUI crystalsInd;
@@ -12,24 +11,20 @@ public class Shop : MonoBehaviour
     public float[] i3 = new float[] { 1.25f, 0.5f };
     public float[] i4 = new float[] { 1, 1, 1 };
 
-    void Start()
-    {
+    void Start() {
         crystals = PlayerPrefs.GetInt("Crystals");
 
         UpdateInd();
     }
     
-    public void UpdateInd()
-    {
+    public void UpdateInd() {
         crystalsInd.text = crystals + "";
     }
 
-    public bool ItemUpgrade(int cost, ShopItem item)
-    {
+    public bool ItemUpgrade(int cost, ShopItem item) {
         if (crystals < cost)
             return false;
-        else
-        {
+        else {
             crystals -= cost;
 
             item.LvlUp();
